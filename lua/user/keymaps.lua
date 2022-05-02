@@ -67,3 +67,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+keymap('n', '<Leader>gs', '<cmd>Gstatus<CR>', opts)  -- Git status
+keymap('n', '<leader>gc',   ':GBranches<CR>', opts)
+keymap('n', '<leader>gj', ':diffget //3<CR>', opts)
+keymap('n', '<leader>gf', ':diffget //2<CR>', opts)
