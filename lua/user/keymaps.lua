@@ -78,7 +78,6 @@ keymap('i', '<C-u>', '<C-g>u<C-u>', opts)  -- Make <C-u> undo-friendly
 keymap('i', '<C-w>', '<C-g>u<C-w>', opts)  -- Make <C-w> undo-friendly
 
 
-keymap('n', '<C-l>', '<cmd>noh<CR>', opts)    -- Clear highlights
 keymap('n', '<leader>o', 'm`o<Esc>``', opts)  -- Insert a newline in normal mode
 
 -- avoid cursor keys for command history
