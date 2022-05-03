@@ -37,7 +37,7 @@ vim.g["nvim_tree_show_icons"] = {
       git = 1,
       folders = 1,
       files = 1,
-      folder_arrows = 1,
+      folder_arrows = 0,
     }
 --If 0, do not show the icons for one of 'git' 'folder' and 'files'
 --1 by default, notice that if 'files' is 1, it will only display
@@ -86,7 +86,7 @@ vim.cmd "nnoremap <leader>n :NvimTreeFindFile<CR>"
 vim.cmd [[set termguicolors]] -- this variable must be enabled for colors to be applied properly
 
 -- a list of groups can be found at `:help nvim_tree_highlight`
-vim.cmd [[highlight NvimTreeFolderIcon guibg=blue]]
+-- vim.cmd [[highlight NvimTreeFolderIcon guibg=blue]]
 
 -- END TEMPORARY HACK
 
@@ -139,7 +139,8 @@ nvim_tree.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {},
+    custom = {"^\\.git$"},
+    exclude = {},
   },
   git = {
     enable = true,
