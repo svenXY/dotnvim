@@ -28,7 +28,14 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
 ]]
+
+-- Increase timeoutlen for fugitive - does not work buffer-only
+--   augroup _fugitive
+--     autocmd!
+--     autocmd FileType fugitive set timeoutlen=1000
+--   augroup end
 
 -- Autoformat
 -- augroup _lsp
