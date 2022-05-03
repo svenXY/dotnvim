@@ -71,3 +71,35 @@ keymap('n', '<Leader>gs', '<cmd>Gstatus<CR>', opts)  -- Git status
 keymap('n', '<leader>gc',   ':GBranches<CR>', opts)
 keymap('n', '<leader>gj', ':diffget //3<CR>', opts)
 keymap('n', '<leader>gf', ':diffget //2<CR>', opts)
+
+-- own stuff
+keymap('', '<leader>c', '"+y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
+keymap('i', '<C-u>', '<C-g>u<C-u>', opts)  -- Make <C-u> undo-friendly
+keymap('i', '<C-w>', '<C-g>u<C-w>', opts)  -- Make <C-w> undo-friendly
+
+
+keymap('n', '<C-l>', '<cmd>noh<CR>', opts)    -- Clear highlights
+keymap('n', '<leader>o', 'm`o<Esc>``', opts)  -- Insert a newline in normal mode
+
+-- avoid cursor keys for command history
+keymap('c', '<C-p>', '<Up>', opts)
+keymap('c', '<C-n>', '<Down>', opts)
+
+-- put active file directory into %%
+keymap('c', '%%', "<C-R>=expand('%:h').'/'<cr>", opts)
+
+keymap('c', 'help', 'vertical help ', opts)
+
+-- Keep search matches in the middle of the window.
+keymap('n', 'n', 'nzzzv', opts)
+keymap('n', 'N', 'Nzzzv', opts)
+
+-- telescope
+-- keymap('n', '<Leader>ff',  [[<Cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
+-- keymap('n', '<Leader>ffg',  [[<Cmd>lua require('telescope.builtin').git_files()<CR>]], opts)
+-- keymap('n', '<Leader>fg',  [[<Cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
+-- keymap('n', '<Leader>fb',  [[<Cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
+-- keymap('n', '<Leader>fh',  [[<Cmd>lua require('telescope.builtin').help_tags()<CR>]], opts)
+
+-- close buffer
+keymap('n', '<Leader><esc>', ':bd<cr>', opts)
