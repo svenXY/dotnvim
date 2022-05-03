@@ -80,21 +80,29 @@ local opts = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["w"] = { "<cmd>w!<CR>", "Save Buffer" },
+  ["q"] = { "<cmd>q!<CR>", "Quit Neovim" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+
+  f = {
+    name = "Telescope",
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Buffers",
+    },
+    f = {
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Find files",
+    },
+    h = { "<cmd>Telescope help_tags<cr>", "Help"},
+    -- d = {'<cmd>lua require("user.telescope").search_dotfiles({ hidden = true })<CR>', "dotfiles"},
+    -- D = {'<cmd>lua require("user.telescope").grep_dotfiles({ hidden = true })<CR>', "grep dot"},
+    F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+    w = {'<cmd>lua require("user.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
+  },
 
   p = {
     name = "Packer",
