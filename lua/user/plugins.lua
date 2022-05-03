@@ -63,6 +63,7 @@ return packer.startup(function(use)
     'blindFS/vim-taskwarrior',
     on='TW'
   }
+  use 'tpope/vim-surround'
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
