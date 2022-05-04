@@ -76,8 +76,26 @@ telescope.setup {
         ["?"] = actions.which_key,
       },
     },
+    vimgrep_arguments = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--hidden',
+        '-u', -- grep in hidden files
+      },
+    file_ignore_patterns = {
+      "^node_modules/",
+      "^.git/",
+    },
   },
   pickers = {
+    find_files = {
+      find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git" }
+    },
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -97,12 +115,12 @@ telescope.setup {
 
 local M = {}
 
-M.find_files = function()
-  require("telescope.builtin").find_files {
-    find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
-    previewer = false
-  }
-end
+-- M.find_files = function()
+--   require("telescope.builtin").find_files {
+--     find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
+--     previewer = false
+--   }
+-- end
 
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
