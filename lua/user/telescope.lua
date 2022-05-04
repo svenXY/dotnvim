@@ -85,7 +85,9 @@ telescope.setup {
         '--column',
         '--smart-case',
         '--hidden',
-        '-u', -- grep in hidden files
+        '--iglob',
+        '!.git',
+        -- '-u', -- grep in hidden files
       },
     file_ignore_patterns = {
       "^node_modules/",
