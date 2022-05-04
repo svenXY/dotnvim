@@ -118,49 +118,49 @@ telescope.setup {
   },
 }
 
-local M = {}
-
+-- local M = {}
+--
 -- M.find_files = function()
 --   require("telescope.builtin").find_files {
 --     find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
 --     previewer = false
 --   }
 -- end
-
-M.search_dotfiles = function()
-    require("telescope.builtin").find_files({
-        prompt_title = "< VimRC >",
-        cwd = '~/.config/nvim',
-        hidden = true,
-    })
-end
-
-M.grep_dotfiles = function()
-    require("telescope.builtin").live_grep({
-        prompt_title = "< VimRC >",
-        cwd = '~/.config/nvim',
-        hidden = true,
-    })
-end
-
-M.grep_wiki = function()
-    require("telescope.builtin").live_grep({
-        prompt_title = "< VimWiki >",
-        cwd = '~/vimwiki',
-        hidden = true,
-    })
-end
-
-M.git_branches = function()
-    require("telescope.builtin").git_branches({
-        attach_mappings = function(_, map)
-            map("i", "<c-d>", actions.git_delete_branch)
-            map("n", "<c-d>", actions.git_delete_branch)
-            return true
-        end,
-    })
-end
-
-
-return M
-
+--
+-- M.search_dotfiles = function()
+--     require("telescope.builtin").find_files({
+--         prompt_title = "< VimRC >",
+--         cwd = '~/.config/nvim',
+--         hidden = true,
+--     })
+-- end
+--
+-- M.grep_dotfiles = function()
+--     require("telescope.builtin").live_grep({
+--         prompt_title = "< VimRC >",
+--         cwd = '~/.config/nvim',
+--         hidden = true,
+--     })
+-- end
+--
+-- M.grep_wiki = function()
+--     require("telescope.builtin").live_grep({
+--         prompt_title = "< VimWiki >",
+--         cwd = '~/vimwiki',
+--         hidden = true,
+--     })
+-- end
+--
+-- M.git_branches = function()
+--     require("telescope.builtin").git_branches({
+--         attach_mappings = function(_, map)
+--             map("i", "<c-d>", actions.git_delete_branch)
+--             map("n", "<c-d>", actions.git_delete_branch)
+--             return true
+--         end,
+--     })
+-- end
+--
+--
+-- return M
+--
