@@ -96,6 +96,7 @@ telescope.setup {
   },
   pickers = {
     find_files = {
+      -- exclude .git directory, but show hidden files
       find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git" }
     },
     -- Default configuration for builtin pickers goes here:
