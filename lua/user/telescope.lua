@@ -4,9 +4,11 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local previewers = require('telescope.previewers')
 
 telescope.setup {
   defaults = {
+    file_previewer = previewers.vim_buffer_cat.new,
 
     prompt_prefix = " ",
     selection_caret = " ",

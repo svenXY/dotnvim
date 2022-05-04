@@ -90,17 +90,17 @@ local mappings = {
   f = {
     name = "Telescope",
     b = {
-      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "<cmd>Telescope buffers<cr>",
       "Buffers",
     },
     f = {
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "<cmd>Telescope find_files<cr>",
       "Find files",
     },
     h = { "<cmd>Telescope help_tags<cr>", "Help"},
     -- d = {'<cmd>lua require("user.telescope").search_dotfiles({ hidden = true })<CR>', "dotfiles"},
     -- D = {'<cmd>lua require("user.telescope").grep_dotfiles({ hidden = true })<CR>', "grep dot"},
-    F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+    t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     w = {'<cmd>lua require("user.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
   },
 
