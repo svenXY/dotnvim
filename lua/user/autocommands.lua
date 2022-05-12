@@ -10,13 +10,13 @@ vim.cmd [[
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
+    autocmd FileType gitcommit setlocal spell spelllang=de_de,en
   augroup end
 
   augroup _markdown
     autocmd!
     autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
+    autocmd FileType markdown setlocal spell spelllang=de_de,en
   augroup end
 
   augroup _auto_resize
@@ -29,16 +29,9 @@ vim.cmd [[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
+  augroup _pyspark
+    autocmd!
+    autocmd BufNewFile,BufRead *.pyspark set filetype=python
+  augroup end
+
 ]]
-
--- Increase timeoutlen for fugitive - does not work buffer-only
---   augroup _fugitive
---     autocmd!
---     autocmd FileType fugitive set timeoutlen=1000
---   augroup end
-
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
