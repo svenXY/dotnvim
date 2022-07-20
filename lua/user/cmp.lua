@@ -110,7 +110,14 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
-    { name = "buffer", keyword_length = 5 },
+    { name = "buffer",
+        keyword_length = 4,
+        option = {
+          get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end,
+        }
+    },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
