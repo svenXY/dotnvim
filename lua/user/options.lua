@@ -33,6 +33,8 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  laststatus = 3,                          -- only show one statusline, even if splitted
+  winbar = "=%=%m %f",                    -- show filenames at the top of each buffer
 }
 
 vim.opt.shortmess:append "c"
