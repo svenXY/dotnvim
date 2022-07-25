@@ -64,10 +64,6 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use 'vimwiki/vimwiki'
   use "aserowy/tmux.nvim"                    -- tmux integration
-  use {
-    'blindFS/vim-taskwarrior',
-    on='TW'
-  }
   -- use 'tpope/vim-surround'
   use 'kylechui/nvim-surround'
 
