@@ -70,7 +70,7 @@ function _PYTHON_TOGGLE()
 	python:toggle()
 end
 
-local taskwarrior = Terminal:new({ cmd = "taskwarrior-tui", hidden = false })
+local taskwarrior = Terminal:new({ cmd = "taskwarrior-tui", hidden = false, direction = "float" })
 
 function _TASKW_TOGGLE()
 	taskwarrior:toggle()
