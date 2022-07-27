@@ -110,6 +110,19 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
+    repo = {
+      list = {
+        fd_opts = {
+          "--no-ignore-vcs",
+        },
+        search_dirs = {
+          "~/gitlab-dm/",
+          "~/.config/nvim/",
+          "~/.dotfiles/",
+          "~/dev_other/"
+        },
+      },
+    },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -122,6 +135,7 @@ telescope.setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 require("telescope").load_extension "file_browser"
+require'telescope'.load_extension'repo'
 
 
 -- local M = {}
