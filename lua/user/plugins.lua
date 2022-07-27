@@ -112,6 +112,8 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'
   use "shumphrey/fugitive-gitlab.vim"
   use 'tlvince/vim-auto-commit'
+  use "TimUntersberger/neogit"
+  use "sindrets/diffview.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
