@@ -31,13 +31,13 @@ vim.cmd [[
 
 ]]
 
-if vim.version().major > 0 or vim.version().minor > 7 then
-  vim.api.nvim_create_autocmd(
-    { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-    {
-      callback = function()
-        require("user.winbar").get_winbar()
-      end,
-    }
-  )
-end
+-- if vim.version().major > 0 or vim.version().minor > 7 then
+--   vim.api.nvim_create_autocmd(
+--     { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+--     {
+--       callback = function()
+--         require("user.winbar").get_winbar()
+--       end,
+--     }
+--   )
+-- end
