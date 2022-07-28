@@ -88,8 +88,6 @@ keymap('c', '<C-n>', '<Down>', opts)
 -- put active file directory into %%
 keymap('c', '%%', "<C-R>=expand('%:h').'/'<cr>", opts)
 
-keymap('c', 'help', 'vertical help ', opts)
-
 -- Keep search matches in the middle of the window.
 keymap('n', 'n', 'nzzzv', opts)
 keymap('n', 'N', 'Nzzzv', opts)
