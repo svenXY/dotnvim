@@ -12,6 +12,8 @@ M.winbar_filetype_exclude = {
   "Outline",
   "spectre_panel",
   "toggleterm",
+  "NeogitStatus",
+  "DiffviewFilePanel",
   "",
 }
 
