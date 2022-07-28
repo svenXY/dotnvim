@@ -103,3 +103,12 @@ keymap('n', 'N', 'Nzzzv', opts)
 
 -- close buffer
 keymap('n', '<Leader><esc>', ':bd<cr>', opts)
+
+-- URL handling
+if vim.fn.has("mac") == 1 then
+  vim.api.nvim_set_keymap( 'n', 'gx', '<Cmd>call jobstart(["open", expand("<cfile>")], {"detach": v:true})<CR>', {})
+elseif vim.fn.has("unix") == 1 then
+  vim.api.nvim_set_keymap( 'n', 'gx', '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>', {} )
+else
+  vim.api.nvim_set_keymap('n', 'gx', '<Cmd>lua print("Error: gx is not supported on this OS!")<CR>' , {})
+end
