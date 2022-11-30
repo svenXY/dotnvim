@@ -5,10 +5,17 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "pyright", "rust_analyzer", "jsonls", "sumneko_lua", "yamlls" }
+local servers = { "pyright", "rust_analyzer", "jsonls", "sumneko_lua", "yamlls", "tsserver" }
 
 lsp_installer.setup {
 	ensure_installed = servers
+}
+
+-- TypeScript
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
 }
 
 for _, server in pairs(servers) do
@@ -22,3 +29,4 @@ for _, server in pairs(servers) do
 	end
 	lspconfig[server].setup(opts)
 end
+
