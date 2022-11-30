@@ -100,7 +100,12 @@ local mappings = {
     h = { "<cmd>Telescope help_tags<cr>", "Help"},
     -- d = {'<cmd>lua require("user.telescope").search_dotfiles({ hidden = true })<CR>', "dotfiles"},
     -- D = {'<cmd>lua require("user.telescope").grep_dotfiles({ hidden = true })<CR>', "grep dot"},
+    s = {
+      "<cmd>Telescope luasnip theme=dropdown layout_config={width=0.8}<cr>",
+      "Snippets",
+    },
     t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+    p = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
     w = {'<cmd>lua require("user.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
   },
 

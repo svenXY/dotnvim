@@ -136,9 +136,11 @@ telescope.setup {
 require('telescope').load_extension('fzf')
 require("telescope").load_extension "file_browser"
 require'telescope'.load_extension'repo'
+require('telescope').load_extension('luasnip')
+require('telescope').load_extension('neoclip')
 
 
--- local M = {}
+local M = {}
 --
 -- M.find_files = function()
 --   require("telescope.builtin").find_files {
@@ -163,13 +165,13 @@ require'telescope'.load_extension'repo'
 --     })
 -- end
 --
--- M.grep_wiki = function()
---     require("telescope.builtin").live_grep({
---         prompt_title = "< VimWiki >",
---         cwd = '~/vimwiki',
---         hidden = true,
---     })
--- end
+ M.grep_wiki = function()
+     require("telescope.builtin").live_grep({
+         prompt_title = "< VimWiki >",
+         cwd = '~/vimwiki',
+         hidden = true,
+     })
+ end
 --
 -- M.git_branches = function()
 --     require("telescope.builtin").git_branches({
@@ -182,5 +184,5 @@ require'telescope'.load_extension'repo'
 -- end
 --
 --
--- return M
+return M
 --
