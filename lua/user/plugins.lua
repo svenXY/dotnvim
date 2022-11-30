@@ -90,6 +90,8 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "MunifTanjim/prettier.nvim"
+  use "windwp/nvim-ts-autotag" -- closing of tags
 
   use "simrat39/rust-tools.nvim"
 
