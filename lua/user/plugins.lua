@@ -83,6 +83,20 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "avneesh0612/react-nextjs-snippets" -- react snippets
+
+  -- clipboard / registers
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      -- you'll need at least one of these
+      {'nvim-telescope/telescope.nvim'},
+      -- {'ibhagwan/fzf-lua'},
+    },
+    config = function()
+      require('neoclip').setup()
+    end,
+  }
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -99,6 +113,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'nvim-telescope/telescope-file-browser.nvim'}
+  use "benfowler/telescope-luasnip.nvim"
   use "cljoly/telescope-repo.nvim"
 
   -- Treesitter
