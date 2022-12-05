@@ -139,6 +139,7 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+    D = { "<cmd>DiffviewOpen<cr>", "DiffView" },
   },
 
   l = {
