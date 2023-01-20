@@ -39,7 +39,7 @@ nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
-  create_in_closed_folder = true,    --false by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
+  --[[ create_in_closed_folder = true,    --false by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1. ]]
   respect_buf_cwd = true,             --false by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
   ignore_ft_on_setup = {
     "startify",
@@ -83,10 +83,10 @@ nvim_tree.setup {
   },
   view = {
     width = 30,
+    adaptive_size = true,
     --[[ height = 30, ]]
     hide_root_folder = false,
     side = "left",
-    -- auto_resize = true,
     mappings = {
       custom_only = false,
       list = {
