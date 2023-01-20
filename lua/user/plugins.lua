@@ -132,6 +132,8 @@ return packer.startup(function(use)
   use "TimUntersberger/neogit"
   use "sindrets/diffview.nvim"
 
+  -- neorg orgmode stuff
+  use "nvim-neorg/neorg"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
