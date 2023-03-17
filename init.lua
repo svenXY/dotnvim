@@ -24,7 +24,8 @@ require "user.alpha"
 require "user.whichkey"
 require "user.winbar"
 require "user.autocommands"
-require "user.vimwiki"
+--[[ require "user.vimwiki" ]]
+--[[ require "user.mkdnflow" ]]
 require "user.ownstuff"
 require "user.fugitive"
 require "user.tmux"

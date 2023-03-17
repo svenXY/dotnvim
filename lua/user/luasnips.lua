@@ -53,6 +53,7 @@ vim.keymap.set("i", "<c-l>", function()
 end)
 
 vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
+vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/user/luasnips.lua<CR>")
 
 -- some shorthands...
 local snip = ls.snippet
@@ -97,6 +98,20 @@ ls.add_snippets(nil, {
             insert(0, '')
         }),
     },
+  python = {
+      snip({
+          trig = "ic",
+          name = "icecream call",
+          dscr = "Call ic() and ignore the type error",
+      },
+      {
+        text({'ic('}),
+        insert(1, "expression"),
+        text({') # type: ignore'}),
+        insert(0, '')
+      }
+    ),
+  },
 })
 
 

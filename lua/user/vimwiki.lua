@@ -17,6 +17,7 @@ g['vimwiki_list'] = {
     {path = mywiki .. '/tech', syntax= 'markdown', ext= '.md'},
     {path = mywiki .. '/tech/python', syntax= 'markdown', ext= '.md'}
 }
+g['markdown_fenced_languages'] = { 'python', 'sh', 'bash', 'javascript', 'js=javascript', 'json=javascript', 'yaml', 'html' }
 
 -- otherwise it wil steal ctrl-i
 vim.api.nvim_set_keymap('n', '<leader>wl', '<Plug>VimwikiNextLink', {})

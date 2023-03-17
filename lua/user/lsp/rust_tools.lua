@@ -28,5 +28,5 @@ local opts = {
         }
     },
 }
-require('rust-tools').setup(opts)
-return opts
+--[[ require('rust-tools').setup(opts) ]]
+--[[ return opts ]]
