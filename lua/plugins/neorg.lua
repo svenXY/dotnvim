@@ -2,6 +2,7 @@
 return {
   "nvim-neorg/neorg",
   ft = "norg",
+  cmd = { 'Neorg' },
   build = ":Neorg sync-parsers",
   config = function()
     require('neorg').setup {
@@ -57,11 +58,11 @@ return {
             ["core.norg.dirman"] = { -- Manage your directories with Neorg
                 config = {
                     workspaces = {
-                        svh = "~/neorg/svh",
                         dm = "~/neorg/dm",
+                        svh = "~/neorg/svh",
                         private = "~/neorg/private",
                     },
-                    default_workspace = "svh",
+                    default_workspace = "dm",
                     autodetect = true,
                     autochdir = true,
                 }
