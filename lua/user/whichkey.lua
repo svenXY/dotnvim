@@ -107,6 +107,7 @@ local mappings = {
     t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     p = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
     w = {'<cmd>lua require("user.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
+    m = {'<cmd>lua require("user.telescope").grep_man({ hidden = true })<CR>', "man"},
   },
 
   p = {

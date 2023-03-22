@@ -141,7 +141,18 @@ require('telescope').load_extension('neoclip')
 
 
 local M = {}
---
+M.grep_man = function()
+  require("telescope.builtin").current_buffer_fuzzy_find(
+    require('telescope.themes').get_dropdown(
+      {
+        previewer = false,
+        prompt_title = "< GrepMan >",
+        layout_config={width=0.8, height=0.8},
+      }
+    )
+  )
+end
+
 -- M.find_files = function()
 --   require("telescope.builtin").find_files {
 --     find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
