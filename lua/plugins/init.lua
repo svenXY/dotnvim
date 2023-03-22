@@ -6,7 +6,8 @@ return  {
   {
     "kyazdani42/nvim-tree.lua",
       dependencies = {
-        {"kyazdani42/nvim-web-devicons", lazy = true},
+        --[[ {"kyazdani42/nvim-web-devicons", lazy = true}, ]]
+        {"nvim-tree/nvim-web-devicons", lazy = true},
       },
   },
   "moll/vim-bbye",
