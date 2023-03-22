@@ -1,5 +1,3 @@
-
-
 -- Install your plugins here
 return  {
   -- My plugins here
@@ -11,9 +9,7 @@ return  {
         {"kyazdani42/nvim-web-devicons", lazy = true},
       },
   },
-  --[[ "akinsho/bufferline.nvim", ]]
   "moll/vim-bbye",
-  "nvim-lualine/lualine.nvim",
 
   {
     "neovim/nvim-lspconfig",
@@ -36,7 +32,6 @@ return  {
   "ahmedkhalf/project.nvim",
   "lewis6991/impatient.nvim",
   "lukas-reineke/indent-blankline.nvim",
-  "goolord/alpha-nvim",
   "antoinemadec/FixCursorHold.nvim",      -- This is needed to fix lsp doc highlight
   { "folke/which-key.nvim", lazy = true },
   --[[ 'vimwiki/vimwiki', ]]
@@ -99,30 +94,6 @@ return  {
     end,
   },
 
-  {
-    "hrsh7th/nvim-cmp",
-    -- load cmp on InsertEnter
-    event = "InsertEnter",
-    -- these dependencies will only be loaded when cmp loads
-    -- dependencies are always lazy-loaded unless specified otherwise
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path", -- path completions
-      "saadparwaiz1/cmp_luasnip", -- snippet completions
-    },
-  },
-
-  -- snippets
-  {
-  "L3MON4D3/LuaSnip", --snippet engine
-    event = "InsertEnter",
-    dependencies = {
-      "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-      "avneesh0612/react-nextjs-snippets", -- react snippets
-    },
-  },
-
   "MunifTanjim/prettier.nvim",
   "windwp/nvim-ts-autotag", -- closing of tags
   "simrat39/rust-tools.nvim",
@@ -174,12 +145,6 @@ return  {
     },
   },
 
-  -- neorg orgmode stuff
-  {
-    "nvim-neorg/neorg",
-    ft = "norg",
-    build = ":Neorg sync-parsers",
-  },
 
   --[[ { ]]
   --[[   'jakewvincent/mkdnflow.nvim', ]]
