@@ -4,7 +4,6 @@
 return  {
   -- My plugins here
   "nvim-lua/popup.nvim",                  -- An implementation of the Popup API from vim in Neovim
-  "windwp/nvim-autopairs",                -- Autopairs, integrates with both cmp and treesitter
   "numToStr/Comment.nvim",                -- Easily comment stuff
   {
     "kyazdani42/nvim-tree.lua",
@@ -42,7 +41,50 @@ return  {
   { "folke/which-key.nvim", lazy = true },
   --[[ 'vimwiki/vimwiki', ]]
   "aserowy/tmux.nvim",                    -- tmux integration
-  'kylechui/nvim-surround',
+  --[[ 'kylechui/nvim-surround', ]]
+  { 'echasnovski/mini.surround',
+    version = '*',
+    keys = function(_, keys)
+        -- Populate the keys based on the user's options
+        local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
+        local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+        local mappings = {
+          { opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
+          { opts.mappings.delete, desc = "Delete surrounding" },
+          { opts.mappings.find, desc = "Find right surrounding" },
+          { opts.mappings.find_left, desc = "Find left surrounding" },
+          { opts.mappings.highlight, desc = "Highlight surrounding" },
+          { opts.mappings.replace, desc = "Replace surrounding" },
+          { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+        }
+        mappings = vim.tbl_filter(function(m)
+          return m[1] and #m[1] > 0
+        end, mappings)
+        return vim.list_extend(mappings, keys)
+      end,
+    opts = {
+      mappings = {
+        add = "gza", -- Add surrounding in Normal and Visual modes
+        delete = "gzd", -- Delete surrounding
+        find = "gzf", -- Find surrounding (to the right)
+        find_left = "gzF", -- Find surrounding (to the left)
+        highlight = "gzh", -- Highlight surrounding
+        replace = "gzr", -- Replace surrounding
+        update_n_lines = "gzn", -- Update `n_lines`
+      },
+    },
+    config = function(_, opts)
+      -- use gz mappings instead of s to prevent conflict with leap
+      require("mini.surround").setup(opts)
+    end,
+  },
+  --[[ "windwp/nvim-autopairs",                -- Autopairs, integrates with both cmp and treesitter ]]
+  { 'echasnovski/mini.pairs',
+    version = '*',
+    event = "VeryLazy",
+    config = function(_, opts)
+              require("mini.pairs").setup(opts)
+            end,},
 
   -- Colorschemes
   --[[ "lunarvim/colorschemes", -- A bunch of colorschemes you can try out ]]
@@ -114,7 +156,9 @@ return  {
   },
 
   -- Git
-  "lewis6991/gitsigns.nvim",
+  {"lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+  },
   {
     "tpope/vim-fugitive",
     dependencies = {
