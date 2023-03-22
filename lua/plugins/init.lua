@@ -3,13 +3,13 @@ return  {
   -- My plugins here
   "nvim-lua/popup.nvim",                  -- An implementation of the Popup API from vim in Neovim
   "numToStr/Comment.nvim",                -- Easily comment stuff
-  {
-    "kyazdani42/nvim-tree.lua",
-      dependencies = {
-        --[[ {"kyazdani42/nvim-web-devicons", lazy = true}, ]]
-        {"nvim-tree/nvim-web-devicons", lazy = true},
-      },
-  },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --     dependencies = {
+  --       --[[ {"kyazdani42/nvim-web-devicons", lazy = true}, ]]
+  --       {"nvim-tree/nvim-web-devicons", lazy = true},
+  --     },
+  -- },
   "moll/vim-bbye",
 
   {
