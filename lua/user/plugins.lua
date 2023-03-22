@@ -1,37 +1,34 @@
-local fn = vim.fn
 
-vim.g.mapleader = " "  -- Make sure to set `mapleader` before lazy so your mappings are correct
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
 
 -- Install your plugins here
-require('lazy').setup({
+return  {
   -- My plugins here
   "nvim-lua/popup.nvim",                  -- An implementation of the Popup API from vim in Neovim
-  "nvim-lua/plenary.nvim",                -- Useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs",                -- Autopairs, integrates with both cmp and treesitter
   "numToStr/Comment.nvim",                -- Easily comment stuff
-  "kyazdani42/nvim-web-devicons",
-  "kyazdani42/nvim-tree.lua",
-  -- "akinsho/bufferline.nvim",
+  {
+    "kyazdani42/nvim-tree.lua",
+      dependencies = {
+        {"kyazdani42/nvim-web-devicons", lazy = true},
+      },
+  },
+  --[[ "akinsho/bufferline.nvim", ]]
   "moll/vim-bbye",
   "nvim-lualine/lualine.nvim",
 
-  -- mason stuff
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- mason stuff
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      -- lsp status updates
+      "j-hui/fidget.nvim",
+      "onsails/lspkind.nvim",
+      "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
+      "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+    },
+  },
   {
    "SmiteshP/nvim-navic",
    dependencies = "neovim/nvim-lspconfig",
@@ -42,90 +39,106 @@ require('lazy').setup({
   "lukas-reineke/indent-blankline.nvim",
   "goolord/alpha-nvim",
   "antoinemadec/FixCursorHold.nvim",      -- This is needed to fix lsp doc highlight
-  "folke/which-key.nvim",
+  { "folke/which-key.nvim", lazy = true },
   --[[ 'vimwiki/vimwiki', ]]
   "aserowy/tmux.nvim",                    -- tmux integration
-  -- 'tpope/vim-surround',
   'kylechui/nvim-surround',
 
   -- Colorschemes
-  -- "lunarvim/colorschemes", -- A bunch of colorschemes you can try out
-  "lunarvim/darkplus.nvim",
-  "shaunsingh/nord.nvim",
-
-  -- cmp plugins
-  "hrsh7th/nvim-cmp", -- The completion plugin
-  "hrsh7th/cmp-buffer", -- buffer completions
-  "hrsh7th/cmp-path", -- path completions
-  -- "hrsh7th/cmp-cmdline", -- cmdline completions
-  "saadparwaiz1/cmp_luasnip", -- snippet completions
-  "hrsh7th/cmp-nvim-lsp",
-
-  -- snippets
-  "L3MON4D3/LuaSnip", --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-  "avneesh0612/react-nextjs-snippets", -- react snippets
-
-  -- clipboard / registers
+  --[[ "lunarvim/colorschemes", -- A bunch of colorschemes you can try out ]]
+  { "lunarvim/darkplus.nvim", lazy = true, },
   {
-    "AckslD/nvim-neoclip.lua",
-    dependencies = {
-      -- you'll need at least one of these
-      {'nvim-telescope/telescope.nvim'},
-      -- {'ibhagwan/fzf-lua'},
-    },
+  "shaunsingh/nord.nvim",
+   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('neoclip').setup()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme nord]])
     end,
   },
 
-  -- LSP
-  --[[ "neovim/nvim-lspconfig", -- enable LSP ]]
-  "onsails/lspkind.nvim",
-  --[[ "williamboman/nvim-lsp-installer", -- simple to use language server installer ]]
-  "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
-  "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+  {
+    "hrsh7th/nvim-cmp",
+    -- load cmp on InsertEnter
+    event = "InsertEnter",
+    -- these dependencies will only be loaded when cmp loads
+    -- dependencies are always lazy-loaded unless specified otherwise
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path", -- path completions
+      "saadparwaiz1/cmp_luasnip", -- snippet completions
+    },
+  },
+
+  -- snippets
+  {
+  "L3MON4D3/LuaSnip", --snippet engine
+    event = "InsertEnter",
+    dependencies = {
+      "rafamadriz/friendly-snippets", -- a bunch of snippets to use
+      "avneesh0612/react-nextjs-snippets", -- react snippets
+    },
+  },
+
   "MunifTanjim/prettier.nvim",
   "windwp/nvim-ts-autotag", -- closing of tags
-
   "simrat39/rust-tools.nvim",
 
   -- Telescope
-  "nvim-telescope/telescope.nvim",
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make'
+  "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",                -- Useful lua functions used ny lots of plugins
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      'nvim-telescope/telescope-file-browser.nvim',
+      "benfowler/telescope-luasnip.nvim",
+      "cljoly/telescope-repo.nvim",
+      {
+        "AckslD/nvim-neoclip.lua",
+        config = function()
+          require('neoclip').setup()
+        end,
+      },
+    },
   },
-  'nvim-telescope/telescope-file-browser.nvim',
-  "benfowler/telescope-luasnip.nvim",
-  "cljoly/telescope-repo.nvim",
 
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    dependencies = {
+      "nvim-treesitter/playground",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
   },
-  "nvim-treesitter/playground",
-  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Git
   "lewis6991/gitsigns.nvim",
-  'tpope/vim-fugitive',
-  "shumphrey/fugitive-gitlab.vim",
+  {
+    "tpope/vim-fugitive",
+    dependencies = {
+      "shumphrey/fugitive-gitlab.vim",
+    },
+  },
   'tlvince/vim-auto-commit',
-  "TimUntersberger/neogit",
-  "sindrets/diffview.nvim",
+  {
+    "TimUntersberger/neogit",
+    cmd = 'Neogit',
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
+  },
 
   -- neorg orgmode stuff
   {
     "nvim-neorg/neorg",
-    --[[ ft = "norg", ]]
+    ft = "norg",
     build = ":Neorg sync-parsers",
-    dependencies = "nvim-lua/plenary.nvim",
   },
 
   --[[ { ]]
   --[[   'jakewvincent/mkdnflow.nvim', ]]
   --[[   rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed ]]
   --[[ }, ]]
-})
+}
