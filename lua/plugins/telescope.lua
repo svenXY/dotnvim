@@ -8,12 +8,7 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
     "benfowler/telescope-luasnip.nvim",
     "cljoly/telescope-repo.nvim",
-    {"ahmedkhalf/project.nvim",
-      opt =  {
-        on_config_done = nil,
-        show_hidden = true,
-      },
-    },
+    "nvim-telescope/telescope-project.nvim",
     {
       "AckslD/nvim-neoclip.lua",
       config = function()
@@ -141,6 +136,18 @@ return {
             },
           },
         },
+        project = {
+          base_dirs = {
+            {"~/gitlab-dm/", max_depth = 3},
+            {"~/dev_other/", max_depth = 3},
+              "~/.config/nvim/",
+              "~/.dotfiles/",
+          },
+          hidden_files = true, -- default: false
+          theme = "dropdown",
+          order_by = "recent",
+          search_by = "title",
+        }
       },
     }
 
@@ -151,42 +158,7 @@ return {
     require'telescope'.load_extension'repo'
     require('telescope').load_extension('luasnip')
     require('telescope').load_extension('neoclip')
-    require('telescope').load_extension('projects')
+    require('telescope').load_extension('project')
 
-
-    local M = {}
-    M.grep_buffer = function()
-      require("telescope.builtin").current_buffer_fuzzy_find(
-        require('telescope.themes').get_dropdown(
-          {
-            previewer = false,
-            prompt_title = "< GrepCurrentBuffer >",
-            layout_config={width=0.8, height=0.8},
-          }
-        )
-      )
-    end
-
-    M.grep_wiki = function()
-      require("telescope.builtin").live_grep({
-        prompt_title = "< VimWiki >",
-        cwd = '~/vimwiki',
-        hidden = true,
-      })
-    end
-    --
-    -- M.git_branches = function()
-    --     require("telescope.builtin").git_branches({
-    --         attach_mappings = function(_, map)
-    --             map("i", "<c-d>", actions.git_delete_branch)
-    --             map("n", "<c-d>", actions.git_delete_branch)
-    --             return true
-    --         end,
-    --     })
-    -- end
-    --
-    --
-    return M
-    --
   end
 }

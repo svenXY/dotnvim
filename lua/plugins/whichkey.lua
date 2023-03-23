@@ -34,7 +34,7 @@ return {
       ["q"] = { "<cmd>q!<CR>", "Quit Neovim" },
       ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+      ["P"] = { "<cmd>Telescope project<CR>", "Projects" },
 
       f = {
         name = "Telescope",
@@ -55,8 +55,8 @@ return {
         },
         t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
         p = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
-        w = {'<cmd>lua require("user.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
-        l = {'<cmd>lua require("user.telescope").grep_buffer({ hidden = true })<CR>', "local buffer"},
+        w = {'<cmd>lua require("plugins.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
+        c = {'<cmd>lua require("user.telescope_extra").grep_buffer({ hidden = true })<CR>', "current buffer"},
       },
 
       p = {
