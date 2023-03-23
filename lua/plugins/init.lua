@@ -3,41 +3,11 @@ return  {
   -- My plugins here
   "nvim-lua/popup.nvim",                  -- An implementation of the Popup API from vim in Neovim
   "numToStr/Comment.nvim",                -- Easily comment stuff
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --     dependencies = {
-  --       --[[ {"kyazdani42/nvim-web-devicons", lazy = true}, ]]
-  --       {"nvim-tree/nvim-web-devicons", lazy = true},
-  --     },
-  -- },
   "moll/vim-bbye",
-
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- mason stuff
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      -- lsp status updates
-      "j-hui/fidget.nvim",
-      "onsails/lspkind.nvim",
-      "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
-      "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
-    },
-  },
-  {
-   "SmiteshP/nvim-navic",
-   dependencies = "neovim/nvim-lspconfig",
-  },
   "akinsho/toggleterm.nvim",
-  "ahmedkhalf/project.nvim",
   "lewis6991/impatient.nvim",
   "lukas-reineke/indent-blankline.nvim",
   "antoinemadec/FixCursorHold.nvim",      -- This is needed to fix lsp doc highlight
-  { "folke/which-key.nvim", lazy = true },
-  --[[ 'vimwiki/vimwiki', ]]
-  "aserowy/tmux.nvim",                    -- tmux integration
-  --[[ 'kylechui/nvim-surround', ]]
   { 'echasnovski/mini.surround',
     version = '*',
     keys = function(_, keys)
@@ -96,56 +66,7 @@ return  {
   },
 
   "MunifTanjim/prettier.nvim",
-  "windwp/nvim-ts-autotag", -- closing of tags
   "simrat39/rust-tools.nvim",
-
-  -- Telescope
-  {
-  "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",                -- Useful lua functions used ny lots of plugins
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-      'nvim-telescope/telescope-file-browser.nvim',
-      "benfowler/telescope-luasnip.nvim",
-      "cljoly/telescope-repo.nvim",
-      {
-        "AckslD/nvim-neoclip.lua",
-        config = function()
-          require('neoclip').setup()
-        end,
-      },
-    },
-  },
-
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    dependencies = {
-      "nvim-treesitter/playground",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
-  },
-
-  -- Git
-  {"lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  {
-    "tpope/vim-fugitive",
-    dependencies = {
-      "shumphrey/fugitive-gitlab.vim",
-    },
-  },
-  'tlvince/vim-auto-commit',
-  {
-    "TimUntersberger/neogit",
-    cmd = 'Neogit',
-    dependencies = {
-      "sindrets/diffview.nvim",
-    },
-  },
-
 
   --[[ { ]]
   --[[   'jakewvincent/mkdnflow.nvim', ]]
