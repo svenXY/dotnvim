@@ -6,8 +6,6 @@ require "user.comment"
 require "user.toggleterm"
 require "user.prettier"
 require "user.impatient"
-require "user.indentline"
---[[ require "user.whichkey" ]]
 require "user.winbar"
 require "user.autocommands"
 require "user.ownstuff"
