@@ -93,16 +93,17 @@ return {
                 name = "Sven",
                 dscr = "Name in different formats",
             }, {
-                choice(1, {
-                  text('Sven'),
-                  text('Sven Hergenhahn'),
-                  text('Sven Hergenhahn <sven.hergenhahn@dm.de>'),
-                  text('Sven Hergenhahn <sven@hergenhahn-web.de>'),
-                  text({'Sven Hergenhahn', 'Dammweg 74', '69123 Heidelberg'}),
-                }),
-                insert(0, '')
-            }),
-        },
+                dynamicn(1, function()
+                  local lines = require('../user/svh-util').lines_from(os.getenv('HOME') .. '/snippets_private.txt')
+                  local d = {}
+                  for _, t in ipairs(lines) do
+                    table.insert(d, text(t))
+                  end
+                  return node(nil, {choice(1, d)})
+                end),
+              insert(0, '')
+          }),
+      },
       python = {
           snip({
               trig = "ic",
