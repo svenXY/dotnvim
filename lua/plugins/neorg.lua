@@ -1,9 +1,10 @@
 -- neorg orgmode stuff
 return {
   "nvim-neorg/neorg",
+  --[[ "svenXY/neorg", ]]
   ft = "norg",
   cmd = { 'Neorg' },
-  dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" }, {"nvim-neorg/neorg-telescope"} },
+  dependencies = { { "nvim-lua/plenary.nvim" }, {"nvim-treesitter/nvim-treesitter"}, {"nvim-neorg/neorg-telescope"} },
   build = ":Neorg sync-parsers",
   config = function()
     require('neorg').setup {
@@ -89,7 +90,7 @@ return {
         },
 
         i = { -- Bind  in insert mode
-          { "<C-l>", "core.integrations.telescope.insert_link" },
+          { "<C-i>", "core.integrations.telescope.insert_link" },
         },
       }, {
           silent = true,

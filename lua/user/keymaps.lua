@@ -110,3 +110,4 @@ elseif vim.fn.has("unix") == 1 then
 else
   vim.api.nvim_set_keymap('n', 'gx', '<Cmd>lua print("Error: gx is not supported on this OS!")<CR>' , {})
 end
+

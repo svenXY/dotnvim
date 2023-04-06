@@ -41,9 +41,8 @@ snip({
       for _, t in ipairs(lines) do
         table.insert(d, text(t))
       end
-      return node(nil, {choice(1, d)})
+      return node(nil, {choice(1, d), insert(0, '')})
     end),
-    insert(0, '')
   })
 }
 
