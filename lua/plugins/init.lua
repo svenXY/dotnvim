@@ -1,4 +1,3 @@
--- Install your plugins here
 return  {
   -- My plugins here
   "nvim-lua/popup.nvim",                  -- An implementation of the Popup API from vim in Neovim
@@ -30,13 +29,13 @@ return  {
       end,
     opts = {
       mappings = {
-        add = "gza", -- Add surrounding in Normal and Visual modes
-        delete = "gzd", -- Delete surrounding
-        find = "gzf", -- Find surrounding (to the right)
-        find_left = "gzF", -- Find surrounding (to the left)
-        highlight = "gzh", -- Highlight surrounding
-        replace = "gzr", -- Replace surrounding
-        update_n_lines = "gzn", -- Update `n_lines`
+        add = "sa", -- Add surrounding in Normal and Visual modes
+        delete = "sd", -- Delete surrounding
+        find = "sf", -- Find surrounding (to the right)
+        find_left = "sF", -- Find surrounding (to the left)
+        highlight = "sh", -- Highlight surrounding
+        replace = "sr", -- Replace surrounding
+        update_n_lines = "sn", -- Update `n_lines`
       },
     },
     config = function(_, opts)
@@ -55,9 +54,17 @@ return  {
   -- Colorschemes
   --[[ "lunarvim/colorschemes", -- A bunch of colorschemes you can try out ]]
   { "lunarvim/darkplus.nvim", lazy = true, },
+  --[[ { "catppuccin/nvim", ]]
+  --[[  lazy = false, -- make sure we load this during startup if it is your main colorscheme ]]
+  --[[   name = "catppuccin", ]]
+  --[[   config = function() ]]
+  --[[     -- load the colorscheme here ]]
+  --[[     vim.cmd.colorscheme 'catppuccin' ]]
+  --[[   end, ]]
+  --[[ }, ]]
   {
   "shaunsingh/nord.nvim",
-   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+   lazy = false,
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
