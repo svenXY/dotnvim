@@ -1,3 +1,7 @@
+# repro stuff
+repro.lua
+.repro/
+
 # Compiled Lua sources
 luac.out
 
