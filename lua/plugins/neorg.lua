@@ -10,7 +10,7 @@ return {
     require('neorg').setup {
       load = {
         ["core.defaults"] = {},
-        ["core.norg.journal"] = {
+        ["core.journal"] = {
           config = {
             toc_format = function(entries)
               local months_text = {
@@ -52,12 +52,12 @@ return {
           },
         },
         --[[ ["core.keybinds"] = {}, ]]
-        ["core.norg.concealer"] = {
+        ["core.concealer"] = {
           config = {
             icon_preset = "diamond",
           },
         }, -- Allows for use of icons
-        ["core.norg.dirman"] = { -- Manage your directories with Neorg
+        ["core.dirman"] = { -- Manage your directories with Neorg
           config = {
             workspaces = {
               dm = "~/neorg/dm",
@@ -70,7 +70,7 @@ return {
             autochdir = true,
           }
         },
-        ["core.norg.completion"] = {
+        ["core.completion"] = {
           config = {
             engine = "nvim-cmp"
           }
