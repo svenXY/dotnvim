@@ -13,7 +13,7 @@ return {
     "windwp/nvim-ts-autotag", -- closing of tags
   },
   config = function()
-    require("nvim-treesitter.install").compilers = { "gcc-12" }
+    require("nvim-treesitter.install").compilers = { "gcc-13" }
 
     local status_ok, configs = pcall(require, "nvim-treesitter.configs")
     if not status_ok then
