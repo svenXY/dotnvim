@@ -31,7 +31,7 @@ return {
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
       --[[ ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" }, ]]
       ["W"] = { "<cmd>w!<CR>", "Save Buffer" },
-      ["q"] = { "<cmd>q!<CR>", "Quit Neovim" },
+      --[[ ["q"] = { "<cmd>q!<CR>", "Quit Neovim" }, ]]
       ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["P"] = { "<cmd>Telescope project<CR>", "Projects" },

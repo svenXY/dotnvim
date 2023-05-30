@@ -3,6 +3,13 @@ return {
     "folke/noice.nvim",
     config = function()
       require("noice").setup({
+        --[[ -- moved to lualine ]]
+        --[[ routes = { ]]
+        --[[   { ]]
+        --[[     view = "notify", ]]
+        --[[     filter = { event = "msg_showmode" }, ]]
+        --[[   }, ]]
+        --[[ }, ]]
         -- add any options here
         commands = {
           all = {
