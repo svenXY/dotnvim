@@ -67,7 +67,8 @@ return {
 
     vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]
 
-    require("luasnip/loaders/from_vscode").lazy_load()
     --[[ require("luasnip").filetype_extend("vimwiki", {"markdown"}) ]]
+    require('luasnip').filetype_extend("typescriptreact", { "javascript", "html", "typescript" })
+    require("luasnip/loaders/from_vscode").lazy_load()
   end
 }

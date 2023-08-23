@@ -55,7 +55,7 @@ return {
   },
 --
   {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     cmd = 'Neogit',
     dependencies = {
       "sindrets/diffview.nvim",
@@ -102,10 +102,12 @@ return {
             folded = true
           },
           unpulled = {
-            folded = true
+            folded = true,
+            hidden = true
           },
           unmerged = {
-            folded = false
+            folded = false,
+            hidden = true
           },
           recent = {
             folded = true
@@ -114,9 +116,9 @@ return {
         -- override/add mappings
         mappings = {
           -- modify status buffer mappings
-          status = {
-            ["B"] = "BranchPopup",
-          }
+          --status = {
+          --  ["B"] = "BranchPopup",
+          --}
         }
       }
     end

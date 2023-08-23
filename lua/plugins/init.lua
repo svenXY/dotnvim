@@ -54,17 +54,18 @@ return  {
   -- Colorschemes
   --[[ "lunarvim/colorschemes", -- A bunch of colorschemes you can try out ]]
   { "lunarvim/darkplus.nvim", lazy = true, },
-  --[[ { "catppuccin/nvim", ]]
-  --[[  lazy = false, -- make sure we load this during startup if it is your main colorscheme ]]
-  --[[   name = "catppuccin", ]]
-  --[[   config = function() ]]
-  --[[     -- load the colorscheme here ]]
-  --[[     vim.cmd.colorscheme 'catppuccin' ]]
-  --[[   end, ]]
-  --[[ }, ]]
+  { "catppuccin/nvim",
+   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    name = "catppuccin",
+    config = function()
+      -- load the colorscheme here
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
+  },
   {
   "shaunsingh/nord.nvim",
-   lazy = false,
+   lazy = true,
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
@@ -74,9 +75,4 @@ return  {
 
   "MunifTanjim/prettier.nvim",
   "simrat39/rust-tools.nvim",
-
-  --[[ { ]]
-  --[[   'jakewvincent/mkdnflow.nvim', ]]
-  --[[   rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed ]]
-  --[[ }, ]]
 }

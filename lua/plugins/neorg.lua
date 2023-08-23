@@ -10,6 +10,7 @@ return {
     require('neorg').setup {
       load = {
         ["core.defaults"] = {},
+        ["core.summary"] = {},
         ["core.journal"] = {
           config = {
             toc_format = function(entries)

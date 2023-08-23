@@ -9,6 +9,12 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path", -- path completions
     "saadparwaiz1/cmp_luasnip", -- snippet completions
+    {
+      "zbirenbaum/copilot-cmp",
+      config = function ()
+        require("copilot_cmp").setup()
+      end
+    },
   },
   config = function()
     local lspkind_status_ok, lspkind = pcall(require, "lspkind")
@@ -78,6 +84,7 @@ return {
         format = lspkind.cmp_format {
           with_text = true,
           menu = {
+            copilot = "[pilot]",
             buffer = "[buf]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[api]",
@@ -88,6 +95,7 @@ return {
         },
       },
       sources = {
+        { name = "copilot", group_index = 2 },
         { name = "nvim_lsp" },
         { name = "path" },
         { name = "luasnip" },
