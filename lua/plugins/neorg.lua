@@ -77,27 +77,18 @@ return {
           }
         },
         ["core.integrations.telescope"] = {},
-      }
+        ["core.keybinds"] = {
+          config = {
+            hook = function(keybinds)
+              keybinds.remap_event("norg", "n", "<leader>nf", "core.integrations.telescope.find_linkable" )
+              keybinds.remap_event("norg", "n", "<leader>nw", "core.integrations.telescope.switch_workspace")
+              keybinds.remap_event("norg", "i", "<C-i>", "core.integrations.telescope.insert_link")
+            end,
+          },
+        },
+      },
     }
 
-    local neorg_callbacks = require("neorg.callbacks")
-
-    neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
-      -- Map all the below keybinds only when the "norg" mode is active
-      keybinds.map_event_to_mode("norg", {
-        n = { -- Bind keys in normal mode
-          { "<leader>nf", "core.integrations.telescope.find_linkable" },
-          { "<leader>nw", "core.integrations.telescope.switch_workspace" },
-        },
-
-        i = { -- Bind  in insert mode
-          { "<C-i>", "core.integrations.telescope.insert_link" },
-        },
-      }, {
-          silent = true,
-          noremap = true,
-        })
-    end)
 
     local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
     local augroup = vim.api.nvim_create_augroup   -- Create autocommand
