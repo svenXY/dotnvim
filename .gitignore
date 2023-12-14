@@ -1,5 +1,6 @@
 # repro stuff
 repro.lua
+repro_*.lua
 .repro/
 
 # Compiled Lua sources

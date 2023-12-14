@@ -32,7 +32,7 @@ return {
       --[[ ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" }, ]]
       ["W"] = { "<cmd>w!<CR>", "Save Buffer" },
       --[[ ["q"] = { "<cmd>q!<CR>", "Quit Neovim" }, ]]
-      ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+      --[[ ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }, ]]
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["P"] = { "<cmd>Telescope project<CR>", "Projects" },
 
@@ -53,19 +53,20 @@ return {
           "<cmd>Telescope luasnip theme=dropdown layout_config={width=0.8}<cr>",
           "Snippets",
         },
+        w = { "<cmd>Telescope grep_string<cr>", "Find word under cursor" },
         t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
         p = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
-        w = {'<cmd>lua require("plugins.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
+        W = {'<cmd>lua require("plugins.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
         c = {'<cmd>lua require("user.telescope_extra").grep_buffer({ hidden = true })<CR>', "current buffer"},
       },
 
       p = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
+        name = "Lazy",
+        l = { "<cmd>Lazy<cr>", "open Lazy" },
+        s = { "<cmd>Lazy sync<cr>", "Sync" },
+        i = { "<cmd>Lazy install<cr>", "Install" },
+        u = { "<cmd>Lazy update<cr>", "Update" },
+        c = { "<cmd>Lazy clean<cr>", "Clean" },
       },
 
       g = {
@@ -96,6 +97,7 @@ return {
       l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        c = { '<Plug>(GitLabToggleCodeSuggestions)', "Code suggestions"},
         d = {
           "<cmd>Telescope lsp_document_diagnostics<cr>",
           "Document Diagnostics",

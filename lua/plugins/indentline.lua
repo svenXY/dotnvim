@@ -3,7 +3,10 @@ return {
   config = function()
     require("ibl").setup {}
   end,
-  event = "BufRead",
+  event = {
+      "BufEnter",
+      "BufNew"
+  },
 }
   --[[ config = function() ]]
   --[[   local status_ok, ib = pcall(require, "indent_blankline") ]]

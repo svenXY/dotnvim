@@ -53,7 +53,10 @@ return {
       }
     end
   },
---
+  {
+    "sindrets/diffview.nvim",
+    cmd = {'DiffviewOpen', 'DiffviewFileHistory', 'DiffviewFocusFiles'},
+  },
   {
     "NeogitOrg/neogit",
     cmd = 'Neogit',
