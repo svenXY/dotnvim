@@ -9,12 +9,6 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path", -- path completions
     "saadparwaiz1/cmp_luasnip", -- snippet completions
-    {
-      "zbirenbaum/copilot-cmp",
-      config = function ()
-        require("copilot_cmp").setup()
-      end
-    },
   },
   config = function()
     local lspkind_status_ok, lspkind = pcall(require, "lspkind")
