@@ -11,6 +11,9 @@ return {
         --[[   }, ]]
         --[[ }, ]]
         -- add any options here
+        presets = {
+          lsp_doc_border = true,
+        },
         commands = {
           all = {
             -- options for the message history that you get with `:Noice`

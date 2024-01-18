@@ -130,6 +130,7 @@ return {
             '--column',
             '--smart-case',
             '--hidden',
+            '--follow', -- follow symlinks
             '--iglob',
             '!.git',
             -- '-u', -- grep in hidden files
@@ -141,8 +142,16 @@ return {
         },
         pickers = {
           find_files = {
-            -- exclude .git directory, but show hidden files
-            find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git" }
+            -- exclude .git directory, but show hidden files, follow symlinks
+            find_command = {
+              "fd",
+              "--type",
+              "f",
+              "--strip-cwd-prefix",
+              "--hidden",
+              "--exclude", ".git",
+              "--follow"
+            }
           },
         },
         extensions = {
