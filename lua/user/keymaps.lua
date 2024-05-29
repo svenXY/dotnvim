@@ -74,7 +74,7 @@ keymap('n', '<leader>gj', ':diffget //3<CR>', opts)
 keymap('n', '<leader>gf', ':diffget //2<CR>', opts)
 
 -- own stuff
-keymap('', '<leader>c', '"+y', opts)       -- Copy to clipboard in normal, visual, select and operator modes
+--[[ keymap('', '<leader>c', '"+y', opts)       -- Copy to clipboard in normal, visual, select and operator modes ]]
 keymap('i', '<C-u>', '<C-g>u<C-u>', opts)  -- Make <C-u> undo-friendly
 keymap('i', '<C-w>', '<C-g>u<C-w>', opts)  -- Make <C-w> undo-friendly
 
