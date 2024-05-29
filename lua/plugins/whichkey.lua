@@ -56,6 +56,9 @@ return {
         w = { "<cmd>Telescope grep_string<cr>", "Find word under cursor" },
         t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
         p = { "<cmd>Telescope neoclip<cr>", "Clipboard" },
+        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+        q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
+        Q = {'<cmd>lua require("user.telescope_extra").live_grep_qflist()<CR>', "Quickfix live_grep"},
         W = {'<cmd>lua require("plugins.telescope").grep_wiki({ hidden = true })<CR>', "wiki"},
         c = {'<cmd>lua require("user.telescope_extra").grep_buffer({ hidden = true })<CR>', "current buffer"},
       },
@@ -147,6 +150,25 @@ return {
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
       },
+      x = {
+        name = "CopilotChat",
+        c = {"<cmd>CopilotChatToggle<CR>", "Toggle Copilot Chat"},
+        r = {"<cmd>CopilotChatReset<CR>", "Reset Copilot Chat"},
+        s = {"<cmd>CopilotChatSave<CR>", "Save Copilot Chat"},
+        l = {"<cmd>CopilotChatLoad<CR>", "Load Copilot Chat"},
+        D = {"<cmd>CopilotChatDebugInfo<CR>", "Debug Info for Copilot Chat"},
+        e = {"<cmd>CopilotChatExplain<CR>", mode = "v", "CopilotChat explain selected code"},
+        v = {"<cmd>CopilotChatReview<CR>", mode = "v", "CopilotChat review selected code"},
+        f = {"<cmd>CopilotChatFix<CR>", mode = "v", "CopilotChat fix selected code"},
+        o = {"<cmd>CopilotChatOptimize<CR>", mode = "v", "CopilotChat optimize selected code"},
+        d = {"<cmd>CopilotChatDocs<CR>", mode = "v", "CopilotChat document selected code"},
+        T = {"<cmd>CopilotChatTests<CR>", mode = "v", "CopilotChat write test for selected code"},
+        F = {"<cmd>CopilotChatFixDiagnostic<CR>", "Fix Diagnostic for Copilot Chat"},
+        C = {
+          i = {"<cmd>CopilotChatCommit<CR>", "Commit Copilot Chat"},
+          s = {"<cmd>CopilotChatCommitStaged<CR>", "Commit Staged Copilot Chat"},
+        },
+      }
     }
 
     wk.setup(setup)
