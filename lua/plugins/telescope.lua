@@ -87,6 +87,7 @@ return {
               ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-l>"] = actions.complete_tag,
               ["<C-_>"] = actions.which_key, -- keys from pressing <C-/> - svh: use c-7
+              ["<C-w>"] = actions.which_key, -- keys from pressing <C-/> - svh: use c-7
             },
 
             n = {
@@ -152,6 +153,11 @@ return {
               "--exclude", ".git",
               "--follow"
             }
+          },
+          live_grep = {
+            mappings = {
+                i = { ["<m-f>"] = actions.to_fuzzy_refine },
+            },
           },
         },
         extensions = {
