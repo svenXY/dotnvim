@@ -3,8 +3,14 @@ return {
   "nvim-neorg/neorg",
   --[[ "svenXY/neorg", ]]
   ft = "norg",
+  version = "v7.0.0",
   cmd = { 'Neorg' },
-  dependencies = { { "nvim-lua/plenary.nvim" }, {"nvim-treesitter/nvim-treesitter"}, {"nvim-neorg/neorg-telescope"} },
+  dependencies = {
+    --[[ { "luarocks.nvim" }, ]]
+    { "nvim-lua/plenary.nvim" },
+    {"nvim-treesitter/nvim-treesitter"},
+    {"nvim-neorg/neorg-telescope"}
+  },
   build = ":Neorg sync-parsers",
   config = function()
     require('neorg').setup {
