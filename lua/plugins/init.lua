@@ -58,10 +58,18 @@ return  {
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     name = "catppuccin",
-    config = function()
-      -- load the colorscheme here
-      vim.cmd.colorscheme 'catppuccin-mocha'
-    end,
+    opts = {
+      flavour = "mocha",
+      custom_highlights = function(colors)
+        return {
+            LineNr = { fg = colors.subtext0 },
+        }
+      end
+    },
+    --[[ config = function() ]]
+    --[[   -- load the colorscheme here ]]
+    --[[   vim.cmd.colorscheme 'catppuccin-mocha' ]]
+    --[[ end, ]]
   },
   --{
   --  "shaunsingh/nord.nvim",
